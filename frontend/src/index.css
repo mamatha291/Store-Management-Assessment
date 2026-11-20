@@ -5769,3 +5769,129 @@ textarea {
 [data-theme="dark"] .ambient-mesh-orb.orb-amber {
   animation: orbGlowPulse 18s ease-in-out infinite 2s;
 }
+
+
+/* ==========================================================================
+   Dark Mode Dashboard Shortcuts Section & Management Directory Overrides
+   ========================================================================== */
+
+[data-theme="dark"] .dashboard-shortcuts-section {
+  background: rgba(18, 24, 36, 0.88);
+  backdrop-filter: saturate(190%) blur(28px);
+  -webkit-backdrop-filter: saturate(190%) blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 46px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .shortcuts-title {
+  color: #F3F4F6;
+}
+
+[data-theme="dark"] .shortcuts-subtitle {
+  color: #9CA3AF;
+}
+
+[data-theme="dark"] .shortcuts-eyebrow {
+  color: #2997FF;
+}
+
+[data-theme="dark"] .shortcut-card {
+  background: rgba(26, 35, 52, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .shortcut-card:hover {
+  background: rgba(32, 44, 66, 0.95);
+  border-color: rgba(41, 151, 255, 0.45);
+  box-shadow: 0 20px 42px -10px rgba(0, 0, 0, 0.7),
+              0 0 24px rgba(41, 151, 255, 0.25),
+              inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  transform: translateY(-6px) scale(1.02);
+}
+
+[data-theme="dark"] .shortcut-name {
+  color: #F3F4F6;
+}
+
+[data-theme="dark"] .shortcut-card:hover .shortcut-name {
+  color: #2997FF;
+}
+
+[data-theme="dark"] .shortcut-desc {
+  color: #9CA3AF;
+}
+
+[data-theme="dark"] .shortcut-arrow {
+  color: #2997FF;
+}
+
+[data-theme="dark"] .shortcut-icon-wrapper.icon-users {
+  background: rgba(41, 151, 255, 0.18);
+  color: #2997FF;
+}
+
+[data-theme="dark"] .shortcut-icon-wrapper.icon-stores {
+  background: rgba(52, 199, 89, 0.18);
+  color: #34D399;
+}
+
+[data-theme="dark"] .shortcut-icon-wrapper.icon-newuser {
+  background: rgba(167, 139, 250, 0.18);
+  color: #A78BFA;
+}
+
+[data-theme="dark"] .shortcut-icon-wrapper.icon-newstore {
+  background: rgba(255, 159, 10, 0.18);
+  color: #FFB340;
+}
+
+/* Dark Mode Dashboard Stat Cards Neon Highlights */
+[data-theme="dark"] .stat-card.stat-users .stat-value {
+  color: #2997FF;
+  text-shadow: 0 0 16px rgba(41, 151, 255, 0.45);
+}
+
+[data-theme="dark"] .stat-card.stat-stores .stat-value {
+  color: #34D399;
+  text-shadow: 0 0 16px rgba(52, 211, 153, 0.45);
+}
+
+[data-theme="dark"] .stat-card.stat-ratings .stat-value {
+  color: #FFB340;
+  text-shadow: 0 0 16px rgba(255, 179, 64, 0.45);
+}
+
+/* Dark Mode User Detail Page */
+[data-theme="dark"] .profile-card-glass {
+  background: rgba(18, 24, 36, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 44px -8px rgba(0, 0, 0, 0.65);
+}
+
+[data-theme="dark"] .profile-hero-banner {
+  background: linear-gradient(135deg, rgba(26, 35, 52, 0.95) 0%, rgba(18, 24, 36, 0.95) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .panel-store-card {
+  background: rgba(24, 32, 48, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .panel-empty-box {
+  background: rgba(14, 19, 29, 0.7);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  color: #9CA3AF;
+}
+
+[data-theme="dark"] .panel-rating-item {
+  background: rgba(24, 32, 48, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .panel-rating-store {
+  color: #F3F4F6;
+}
