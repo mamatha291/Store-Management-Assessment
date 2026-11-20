@@ -30,7 +30,14 @@ function AdminDashboard() {
 
   return (
     <div className="dashboard-container">
-      {/* Dynamic Bento Stat Cards */}
+      {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
+      <div className="dashboard-ambient-mesh">
+        <div className="ambient-mesh-orb orb-blue"></div>
+        <div className="ambient-mesh-orb orb-emerald"></div>
+        <div className="ambient-mesh-orb orb-amber"></div>
+      </div>
+
+      {/* Dynamic Bento Glassmorphic Stat Cards */}
       <div className="dashboard-cards">
         <div className="stat-card stat-users">
           <div className="stat-card-glow-bg"></div>

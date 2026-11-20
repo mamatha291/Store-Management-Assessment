@@ -697,12 +697,59 @@ body {
   box-shadow: 0 8px 24px rgba(0, 113, 227, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
 }
 
+.dashboard-ambient-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 600px;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.ambient-mesh-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(75px);
+  pointer-events: none;
+}
+
+.ambient-mesh-orb.orb-blue {
+  top: -60px;
+  left: 5%;
+  width: 540px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(0, 113, 227, 0.22) 0%, rgba(0, 113, 227, 0.05) 55%, transparent 75%);
+  animation: orbDriftOne 12s ease-in-out infinite alternate;
+}
+
+.ambient-mesh-orb.orb-emerald {
+  top: 10px;
+  left: 40%;
+  width: 520px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(52, 199, 89, 0.18) 0%, rgba(52, 199, 89, 0.04) 55%, transparent 75%);
+  animation: orbDriftTwo 14s ease-in-out infinite alternate;
+}
+
+.ambient-mesh-orb.orb-amber {
+  top: -50px;
+  right: 5%;
+  width: 540px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255, 159, 10, 0.20) 0%, rgba(255, 159, 10, 0.04) 55%, transparent 75%);
+  animation: orbDriftOne 11s ease-in-out infinite alternate-reverse;
+}
+
 .dashboard-cards,
 .dashboard-stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 960px) {
@@ -714,37 +761,50 @@ body {
 }
 
 .stat-card {
-  background: transparent;
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  border: 1.5px solid transparent;
-  border-radius: 26px;
-  box-shadow: none;
-  padding: 30px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(190%) blur(28px);
+  -webkit-backdrop-filter: saturate(190%) blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.04), 
+              inset 0 1px 2px rgba(255, 255, 255, 1);
+  padding: 34px 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  z-index: 1;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
               box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
               background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              backdrop-filter 0.35s ease;
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   animation: sysFadeUp 0.6s var(--ease-spring) both;
+}
+
+.stat-card.stat-users {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(240, 247, 255, 0.65) 100%);
+}
+
+.stat-card.stat-stores {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(240, 253, 244, 0.65) 100%);
+}
+
+.stat-card.stat-ratings {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 251, 235, 0.65) 100%);
 }
 
 .stat-card-glow-bg {
   position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 180px;
-  height: 180px;
+  top: -50px;
+  right: -50px;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
   pointer-events: none;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-  opacity: 0;
-  filter: blur(28px);
+  opacity: 0.35;
+  filter: blur(32px);
 }
 
 .stat-card.stat-users .stat-card-glow-bg {
@@ -763,17 +823,17 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 50%;
+  left: -120%;
+  width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-  transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-22deg);
   transition: transform 0.85s ease, left 0.85s ease;
   pointer-events: none;
 }
 
 .stat-card:hover::after {
-  left: 160%;
+  left: 170%;
 }
 
 .stat-card:nth-child(1) { animation-delay: 0.05s; }
@@ -782,23 +842,20 @@ body {
 
 .stat-card:hover {
   transform: translateY(-8px) scale(1.02);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
 .stat-card:hover .stat-card-glow-bg {
   transform: scale(1.6);
-  opacity: 1;
+  opacity: 0.85;
 }
 
-/* User Card Hover - Electric Blue Box */
+/* User Card Hover - Glowing Luminous Azure Box */
 .stat-card.stat-users:hover {
-  background: rgba(0, 113, 227, 0.05);
+  background: rgba(255, 255, 255, 0.88);
   border-color: rgba(0, 113, 227, 0.45);
-  box-shadow: 0 24px 50px -12px rgba(0, 113, 227, 0.24), 
-              0 0 0 1px rgba(0, 113, 227, 0.2), 
-              inset 0 1px 2px rgba(255, 255, 255, 0.9),
-              inset 0 0 24px rgba(0, 113, 227, 0.06);
+  box-shadow: 0 24px 50px -10px rgba(0, 113, 227, 0.22), 
+              0 0 0 1px rgba(0, 113, 227, 0.18), 
+              inset 0 1px 2px rgba(255, 255, 255, 1);
 }
 
 .stat-card.stat-users:hover .stat-label {
@@ -807,17 +864,16 @@ body {
 
 .stat-card.stat-users:hover .stat-value {
   color: #0071E3;
-  text-shadow: 0 4px 16px rgba(0, 113, 227, 0.25);
+  text-shadow: 0 4px 18px rgba(0, 113, 227, 0.28);
 }
 
-/* Store Card Hover - Emerald Green Box */
+/* Store Card Hover - Glowing Luminous Emerald Box */
 .stat-card.stat-stores:hover {
-  background: rgba(52, 199, 89, 0.05);
+  background: rgba(255, 255, 255, 0.88);
   border-color: rgba(52, 199, 89, 0.45);
-  box-shadow: 0 24px 50px -12px rgba(52, 199, 89, 0.24), 
-              0 0 0 1px rgba(52, 199, 89, 0.2), 
-              inset 0 1px 2px rgba(255, 255, 255, 0.9),
-              inset 0 0 24px rgba(52, 199, 89, 0.06);
+  box-shadow: 0 24px 50px -10px rgba(52, 199, 89, 0.22), 
+              0 0 0 1px rgba(52, 199, 89, 0.18), 
+              inset 0 1px 2px rgba(255, 255, 255, 1);
 }
 
 .stat-card.stat-stores:hover .stat-label {
@@ -826,17 +882,16 @@ body {
 
 .stat-card.stat-stores:hover .stat-value {
   color: #248A3D;
-  text-shadow: 0 4px 16px rgba(52, 199, 89, 0.25);
+  text-shadow: 0 4px 18px rgba(52, 199, 89, 0.28);
 }
 
-/* Rating Card Hover - Amber Gold Box */
+/* Rating Card Hover - Glowing Luminous Amber Box */
 .stat-card.stat-ratings:hover {
-  background: rgba(255, 159, 10, 0.05);
-  border-color: rgba(255, 159, 10, 0.45);
-  box-shadow: 0 24px 50px -12px rgba(255, 159, 10, 0.26), 
-              0 0 0 1px rgba(255, 159, 10, 0.2), 
-              inset 0 1px 2px rgba(255, 255, 255, 0.9),
-              inset 0 0 24px rgba(255, 159, 10, 0.07);
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 159, 10, 0.48);
+  box-shadow: 0 24px 50px -10px rgba(255, 159, 10, 0.25), 
+              0 0 0 1px rgba(255, 159, 10, 0.18), 
+              inset 0 1px 2px rgba(255, 255, 255, 1);
 }
 
 .stat-card.stat-ratings:hover .stat-label {
@@ -845,7 +900,7 @@ body {
 
 .stat-card.stat-ratings:hover .stat-value {
   color: #FF9F0A;
-  text-shadow: 0 4px 16px rgba(255, 159, 10, 0.25);
+  text-shadow: 0 4px 18px rgba(255, 159, 10, 0.28);
 }
 
 .stat-card-header {
@@ -897,17 +952,17 @@ body {
 }
 
 .stat-card .stat-value {
-  font-size: 50px;
+  font-size: 52px;
   font-weight: 800;
   color: var(--text-main);
   letter-spacing: -0.045em;
   line-height: 1.05;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .stat-card:hover .stat-value {
-  transform: scale(1.04);
+  transform: scale(1.05);
   transform-origin: left;
 }
 
@@ -939,14 +994,16 @@ body {
 
 /* ---- 4-Column Bento Shortcuts Section ---- */
 .dashboard-shortcuts-section {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  border-radius: 28px;
-  padding: 36px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.035), inset 0 1px 2px #FFFFFF;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(190%) blur(28px);
+  -webkit-backdrop-filter: saturate(190%) blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 30px;
+  padding: 38px 36px;
+  box-shadow: 0 16px 44px -8px rgba(0, 0, 0, 0.04), inset 0 1px 2px #FFFFFF;
   margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
   animation: sysFadeUp 0.7s var(--ease-spring);
 }
 
@@ -1001,22 +1058,45 @@ body {
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  padding: 24px;
-  background: #FAFAFC;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 26px 24px;
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 22px;
   text-decoration: none;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.25s ease, 
+              border-color 0.25s ease;
   position: relative;
   overflow: hidden;
-  min-height: 160px;
+  min-height: 150px;
+}
+
+.shortcut-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-22deg);
+  transition: transform 0.75s ease, left 0.75s ease;
+  pointer-events: none;
+}
+
+.shortcut-card:hover::after {
+  left: 170%;
 }
 
 .shortcut-card:hover {
   transform: translateY(-6px) scale(1.02);
-  background: #FFFFFF;
-  border-color: rgba(0, 113, 227, 0.3);
-  box-shadow: 0 20px 44px -10px rgba(0, 113, 227, 0.16), 0 4px 14px -2px rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(0, 113, 227, 0.38);
+  box-shadow: 0 20px 42px -10px rgba(0, 113, 227, 0.18), 0 4px 14px -2px rgba(0, 0, 0, 0.03), inset 0 1px 2px #FFFFFF;
 }
 
 .shortcut-card-top {
