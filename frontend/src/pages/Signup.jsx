@@ -143,10 +143,7 @@ function Signup() {
         <form onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="name">
-                Full Name
-                <span className="label-hint">(20 to 60 chars)</span>
-              </label>
+              <label htmlFor="name">Full Name</label>
               <input
                 id="name"
                 type="text"
@@ -228,10 +225,7 @@ function Signup() {
 
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="password">
-                Password
-                <span className="label-hint">(8-16 chars, 1 uppercase, 1 special)</span>
-              </label>
+              <label htmlFor="password">Password</label>
               <div className="password-input-wrapper">
                 <input
                   id="password"
