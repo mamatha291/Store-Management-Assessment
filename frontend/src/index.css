@@ -714,19 +714,23 @@ body {
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.95);
+  background: transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1.5px solid transparent;
   border-radius: 26px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.035), inset 0 1px 2px #FFFFFF;
+  box-shadow: none;
   padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.35s ease;
   animation: sysFadeUp 0.6s var(--ease-spring) both;
 }
 
@@ -734,14 +738,25 @@ body {
   position: absolute;
   top: -60px;
   right: -60px;
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 113, 227, 0.12) 0%, transparent 70%);
-  filter: blur(22px);
   pointer-events: none;
-  transition: transform 0.45s ease, opacity 0.45s ease;
-  opacity: 0.6;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  opacity: 0;
+  filter: blur(28px);
+}
+
+.stat-card.stat-users .stat-card-glow-bg {
+  background: radial-gradient(circle, rgba(0, 113, 227, 0.35) 0%, transparent 70%);
+}
+
+.stat-card.stat-stores .stat-card-glow-bg {
+  background: radial-gradient(circle, rgba(52, 199, 89, 0.35) 0%, transparent 70%);
+}
+
+.stat-card.stat-ratings .stat-card-glow-bg {
+  background: radial-gradient(circle, rgba(255, 159, 10, 0.35) 0%, transparent 70%);
 }
 
 .stat-card::after {
@@ -766,27 +781,71 @@ body {
 .stat-card:nth-child(3) { animation-delay: 0.19s; }
 
 .stat-card:hover {
-  transform: translateY(-8px) scale(1.015);
+  transform: translateY(-8px) scale(1.02);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
 .stat-card:hover .stat-card-glow-bg {
-  transform: scale(1.5);
+  transform: scale(1.6);
   opacity: 1;
 }
 
+/* User Card Hover - Electric Blue Box */
 .stat-card.stat-users:hover {
-  border-color: rgba(0, 113, 227, 0.35);
-  box-shadow: 0 28px 56px -12px rgba(0, 113, 227, 0.22), 0 8px 24px -4px rgba(0, 113, 227, 0.08), inset 0 1px 2px #FFFFFF;
+  background: rgba(0, 113, 227, 0.05);
+  border-color: rgba(0, 113, 227, 0.45);
+  box-shadow: 0 24px 50px -12px rgba(0, 113, 227, 0.24), 
+              0 0 0 1px rgba(0, 113, 227, 0.2), 
+              inset 0 1px 2px rgba(255, 255, 255, 0.9),
+              inset 0 0 24px rgba(0, 113, 227, 0.06);
 }
 
+.stat-card.stat-users:hover .stat-label {
+  color: #0071E3;
+}
+
+.stat-card.stat-users:hover .stat-value {
+  color: #0071E3;
+  text-shadow: 0 4px 16px rgba(0, 113, 227, 0.25);
+}
+
+/* Store Card Hover - Emerald Green Box */
 .stat-card.stat-stores:hover {
-  border-color: rgba(52, 199, 89, 0.35);
-  box-shadow: 0 28px 56px -12px rgba(52, 199, 89, 0.22), 0 8px 24px -4px rgba(52, 199, 89, 0.08), inset 0 1px 2px #FFFFFF;
+  background: rgba(52, 199, 89, 0.05);
+  border-color: rgba(52, 199, 89, 0.45);
+  box-shadow: 0 24px 50px -12px rgba(52, 199, 89, 0.24), 
+              0 0 0 1px rgba(52, 199, 89, 0.2), 
+              inset 0 1px 2px rgba(255, 255, 255, 0.9),
+              inset 0 0 24px rgba(52, 199, 89, 0.06);
 }
 
+.stat-card.stat-stores:hover .stat-label {
+  color: #248A3D;
+}
+
+.stat-card.stat-stores:hover .stat-value {
+  color: #248A3D;
+  text-shadow: 0 4px 16px rgba(52, 199, 89, 0.25);
+}
+
+/* Rating Card Hover - Amber Gold Box */
 .stat-card.stat-ratings:hover {
-  border-color: rgba(255, 159, 10, 0.4);
-  box-shadow: 0 28px 56px -12px rgba(255, 159, 10, 0.24), 0 8px 24px -4px rgba(255, 159, 10, 0.1), inset 0 1px 2px #FFFFFF;
+  background: rgba(255, 159, 10, 0.05);
+  border-color: rgba(255, 159, 10, 0.45);
+  box-shadow: 0 24px 50px -12px rgba(255, 159, 10, 0.26), 
+              0 0 0 1px rgba(255, 159, 10, 0.2), 
+              inset 0 1px 2px rgba(255, 255, 255, 0.9),
+              inset 0 0 24px rgba(255, 159, 10, 0.07);
+}
+
+.stat-card.stat-ratings:hover .stat-label {
+  color: #B25000;
+}
+
+.stat-card.stat-ratings:hover .stat-value {
+  color: #FF9F0A;
+  text-shadow: 0 4px 16px rgba(255, 159, 10, 0.25);
 }
 
 .stat-card-header {
@@ -823,27 +882,9 @@ body {
 .stat-pill-badge.badge-green { background: rgba(52, 199, 89, 0.12); color: #248A3D; }
 .stat-pill-badge.badge-amber { background: rgba(255, 159, 10, 0.12); color: #B25000; }
 
+/* Color lines on top of the card removed as requested */
 .stat-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--primary);
-  opacity: 0.9;
-}
-
-.stat-card.stat-users::before {
-  background: linear-gradient(90deg, #0071E3, #47A3FF);
-}
-
-.stat-card.stat-stores::before {
-  background: linear-gradient(90deg, #34C759, #30D158);
-}
-
-.stat-card.stat-ratings::before {
-  background: linear-gradient(90deg, #FF9F0A, #FFB340);
+  display: none !important;
 }
 
 .stat-card .stat-label {
@@ -852,6 +893,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
+  transition: color 0.3s ease;
 }
 
 .stat-card .stat-value {
@@ -861,7 +903,7 @@ body {
   letter-spacing: -0.045em;
   line-height: 1.05;
   margin-bottom: 12px;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .stat-card:hover .stat-value {

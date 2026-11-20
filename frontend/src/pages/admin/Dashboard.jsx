@@ -39,9 +39,6 @@ function AdminDashboard() {
               <div className="stat-label">Total Registered Users</div>
             </div>
             <div className="stat-value">{stats.totalUsers}</div>
-            <div className="stat-progress-bar-track">
-              <div className="stat-progress-bar-fill fill-blue" style={{ width: stats.totalUsers > 0 ? '78%' : '20%' }}></div>
-            </div>
           </div>
           <div className="stat-subtext">Platform administrators, store owners, and normal customers</div>
         </div>
@@ -53,9 +50,6 @@ function AdminDashboard() {
               <div className="stat-label">Total Active Stores</div>
             </div>
             <div className="stat-value">{stats.totalStores}</div>
-            <div className="stat-progress-bar-track">
-              <div className="stat-progress-bar-fill fill-green" style={{ width: stats.totalStores > 0 ? '65%' : '15%' }}></div>
-            </div>
           </div>
           <div className="stat-subtext">Retail storefronts listed and open for customer reviews</div>
         </div>
@@ -67,9 +61,6 @@ function AdminDashboard() {
               <div className="stat-label">Total Submitted Ratings</div>
             </div>
             <div className="stat-value">{stats.totalRatings}</div>
-            <div className="stat-progress-bar-track">
-              <div className="stat-progress-bar-fill fill-amber" style={{ width: stats.totalRatings > 0 ? '85%' : '25%' }}></div>
-            </div>
           </div>
           <div className="stat-subtext">Verified star ratings submitted across all registered stores</div>
         </div>

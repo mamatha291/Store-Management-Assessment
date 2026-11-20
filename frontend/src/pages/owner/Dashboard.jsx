@@ -150,16 +150,9 @@ function OwnerDashboard() {
           <div>
             <div className="stat-card-header">
               <div className="stat-label">Store Profile</div>
-              <span className="stat-pill-badge badge-green">
-                <span className="badge-pulse-dot dot-green"></span>
-                Active Store
-              </span>
             </div>
             <div className="stat-value" style={{ fontSize: '26px', lineHeight: 1.2 }}>
               {dashboard.storeName}
-            </div>
-            <div className="stat-progress-bar-track">
-              <div className="stat-progress-bar-fill fill-green" style={{ width: '100%' }}></div>
             </div>
           </div>
           <div className="stat-subtext" style={{ color: 'var(--success-text)', fontWeight: '600' }}>
@@ -173,18 +166,11 @@ function OwnerDashboard() {
           <div>
             <div className="stat-card-header">
               <div className="stat-label">Average Score</div>
-              <span className="stat-pill-badge badge-amber">
-                <span className="badge-pulse-dot dot-amber"></span>
-                Live Telemetry
-              </span>
             </div>
             <div className="stat-value" style={{ color: 'var(--warning-text)', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{ color: 'var(--star-gold)', filter: 'drop-shadow(0 2px 8px rgba(255, 159, 10, 0.45))' }}>★</span>
               {dashboard.averageRating.toFixed(1)}
               <span style={{ fontSize: '18px', color: 'var(--text-muted)', fontWeight: '600' }}>/ 5.0</span>
-            </div>
-            <div className="stat-progress-bar-track">
-              <div className="stat-progress-bar-fill fill-amber" style={{ width: `${(dashboard.averageRating / 5) * 100}%` }}></div>
             </div>
           </div>
           <div className="stat-subtext">
@@ -198,16 +184,9 @@ function OwnerDashboard() {
           <div>
             <div className="stat-card-header">
               <div className="stat-label">Total Reviews</div>
-              <span className="stat-pill-badge badge-blue">
-                <span className="badge-pulse-dot"></span>
-                Verified
-              </span>
             </div>
             <div className="stat-value">
               {totalReviews}
-            </div>
-            <div className="stat-progress-bar-track">
-              <div className="stat-progress-bar-fill fill-blue" style={{ width: totalReviews > 0 ? '75%' : '15%' }}></div>
             </div>
           </div>
           <div className="stat-subtext">
