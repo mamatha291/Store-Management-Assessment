@@ -13,7 +13,7 @@
   --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* System Canvas & Surface Palette */
-  --bg-app: #F5F5F7;
+  --bg-app: #EEF2F8;
   --bg-surface: #FFFFFF;
   --bg-surface-hover: #FAFAFC;
   --bg-surface-subtle: #F5F5F7;
@@ -322,6 +322,13 @@ html {
 body {
   font-family: var(--font-family);
   background-color: var(--bg-app);
+  background-image: 
+    radial-gradient(circle at 12% 12%, rgba(0, 113, 227, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 88% 16%, rgba(255, 159, 10, 0.08) 0%, transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba(52, 199, 89, 0.07) 0%, transparent 48%),
+    radial-gradient(circle at 78% 85%, rgba(175, 82, 222, 0.06) 0%, transparent 45%),
+    linear-gradient(180deg, #F5F7FC 0%, #EEF2F8 50%, #E9EDF5 100%);
+  background-attachment: fixed;
   color: var(--text-body);
   line-height: 1.47059;
   letter-spacing: -0.011em;
@@ -761,12 +768,13 @@ body {
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.76);
   backdrop-filter: saturate(190%) blur(28px);
   -webkit-backdrop-filter: saturate(190%) blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: 28px;
-  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.04), 
+  box-shadow: 0 14px 40px -6px rgba(24, 39, 75, 0.06), 
+              0 2px 6px -1px rgba(24, 39, 75, 0.02),
               inset 0 1px 2px rgba(255, 255, 255, 1);
   padding: 34px 32px;
   display: flex;
@@ -994,13 +1002,13 @@ body {
 
 /* ---- 4-Column Bento Shortcuts Section ---- */
 .dashboard-shortcuts-section {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.76);
   backdrop-filter: saturate(190%) blur(28px);
   -webkit-backdrop-filter: saturate(190%) blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: 30px;
   padding: 38px 36px;
-  box-shadow: 0 16px 44px -8px rgba(0, 0, 0, 0.04), inset 0 1px 2px #FFFFFF;
+  box-shadow: 0 18px 46px -8px rgba(24, 39, 75, 0.05), inset 0 1px 2px #FFFFFF;
   margin-bottom: 32px;
   position: relative;
   z-index: 1;
@@ -1059,13 +1067,13 @@ body {
   justify-content: space-between;
   gap: 16px;
   padding: 26px 24px;
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 22px;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 16px rgba(24, 39, 75, 0.025), inset 0 1px 1px rgba(255, 255, 255, 0.95);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
               background-color 0.25s ease, 
