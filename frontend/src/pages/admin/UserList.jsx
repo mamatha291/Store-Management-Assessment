@@ -363,8 +363,12 @@ function UserList() {
                     <div className="panel-hero-info">
                       <h3 className="panel-user-name" title={selectedUser.name}>{selectedUser.name}</h3>
                       <div className="panel-user-email" title={selectedUser.email}>{selectedUser.email}</div>
-                      <div style={{ marginTop: '8px' }}>
+                      <div style={{ marginTop: '8px', display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
                         {renderRoleBadge(selectedUser.role)}
+                        <span className="registration-date-badge">
+                          <span style={{ fontSize: '12px' }}>📅</span>
+                          Registered: {selectedUser.created_at ? new Date(selectedUser.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : 'N/A'}
+                        </span>
                       </div>
                     </div>
                   </div>

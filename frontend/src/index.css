@@ -2038,6 +2038,56 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+.registration-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  background: rgba(0, 113, 227, 0.08);
+  color: #0071E3;
+  border: 1px solid rgba(0, 113, 227, 0.22);
+  box-shadow: 0 2px 6px rgba(0, 113, 227, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.registration-date-badge:hover {
+  background: rgba(0, 113, 227, 0.14);
+  border-color: rgba(0, 113, 227, 0.36);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 113, 227, 0.12);
+}
+
+.security-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  background: rgba(52, 199, 89, 0.12);
+  color: #1b7a34;
+  border: 1px solid rgba(52, 199, 89, 0.28);
+  box-shadow: 0 2px 8px rgba(52, 199, 89, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.security-status-badge:hover {
+  background: rgba(52, 199, 89, 0.18);
+  border-color: rgba(52, 199, 89, 0.42);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(52, 199, 89, 0.16);
+}
+
 /* ==========================================================================
    System Store Marketplace Cards (Glassmorphic)
    ========================================================================== */

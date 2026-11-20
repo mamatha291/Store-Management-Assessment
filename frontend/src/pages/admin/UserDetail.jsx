@@ -118,6 +118,11 @@ function UserDetail() {
               <span style={{ fontSize: '13.5px', color: 'var(--text-muted)' }}>{user.email}</span>
               <span style={{ color: 'var(--text-subtle)' }}>•</span>
               {renderRoleBadge(user.role)}
+              <span style={{ color: 'var(--text-subtle)' }}>•</span>
+              <span className="registration-date-badge">
+                <span style={{ fontSize: '12px' }}>📅</span>
+                Registered: {user.created_at ? new Date(user.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : 'N/A'}
+              </span>
             </div>
           </div>
         </div>
@@ -152,13 +157,6 @@ function UserDetail() {
             <div className="profile-bento-label">Account Registration Date</div>
             <div className="profile-bento-value">
               {user.created_at ? new Date(user.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }) : 'N/A'}
-            </div>
-          </div>
-
-          <div className="profile-bento-tile">
-            <div className="profile-bento-label">Credential Protection Status</div>
-            <div className="profile-bento-value" style={{ fontSize: '14px', color: '#16A34A', fontWeight: '700' }}>
-              Bcrypt Salted & Hashed • Active
             </div>
           </div>
         </div>
