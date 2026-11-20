@@ -13,6 +13,7 @@ import StoreListAdmin from './pages/admin/StoreList';
 import AddStore from './pages/admin/AddStore';
 import UserStoreList from './pages/user/StoreList';
 import OwnerDashboard from './pages/owner/Dashboard';
+import Landing from './pages/Landing';
 
 function App() {
   const { user } = useAuth();
@@ -29,7 +30,10 @@ function App() {
       <Navbar />
       <main className="main-content">
         <Routes>
-          {/* public routes */}
+          {/* landing page */}
+          <Route path="/" element={<Landing />} />
+
+          {/* public auth routes */}
           <Route path="/login" element={user ? <Navigate to={getHomePath()} /> : <Login />} />
           <Route path="/signup" element={user ? <Navigate to={getHomePath()} /> : <Signup />} />
 
@@ -86,8 +90,8 @@ function App() {
             </ProtectedRoute>
           } />
 
-          {/* catch all - redirect to home */}
-          <Route path="*" element={<Navigate to={getHomePath()} />} />
+          {/* catch all - redirect to dashboard if authenticated, else landing */}
+          <Route path="*" element={<Navigate to={user ? getHomePath() : "/"} />} />
         </Routes>
       </main>
     </div>
