@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
-import api from '../../api/axios';
+import { useAuth } from '../context/AuthContext';
+import api from '../api/axios';
+import { AppleCard, AppleStat, FloatingParticles } from '../../components/AppleComponents';
 
 function AdminDashboard() {
   const { user } = useAuth();
@@ -22,91 +22,45 @@ function AdminDashboard() {
     setLoading(false);
   }
 
-  if (loading) {
-    return (
-      <div className="container">
-        <div className="loading-state">Loading dashboard analytics...</div>
-      </div>
-    );
-  }
-
   return (
-    <div className="container">
-      <div className="page-header">
-        <div>
-          <h1 className="page-title">Admin Dashboard</h1>
-          <p className="page-subtitle">
-            Welcome back, {user?.name || 'Administrator'} • Platform metrics and administration actions
-          </p>
-        </div>
-        <div className="btn-group">
-          <Link to="/admin/users/new" className="btn btn-primary">
-            + Add New User
-          </Link>
-          <Link to="/admin/stores/new" className="btn btn-success">
-            + Add New Store
-          </Link>
-        </div>
-      </div>
-
-      <div className="dashboard-cards">
-        <div className="stat-card stat-users">
+    <div className="app-wrapper">
+      <header style={{
+        background: 'rgba(255, 255, 255, 0.7)',
+        backdropFilter: 'blur(12px)',
+        '-webkitBackdropFilter': 'blur(12px)',
+        borderBottom: '1px solid var(--apple-divider)',
+        boxShadow: '0 1px 4px rgba(0, 0, 0, 0.06)',
+        padding: 'var(--space-4) var(--space-6)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <h1 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--apple-text-primary)', margin: 0 }}>
+            Admin Dashboard
+          </h1>
           <div>
-            <div className="stat-label">
-              Total Registered Users
-            </div>
-            <div className="stat-value">{stats.totalUsers}</div>
-          </div>
-          <div className="stat-subtext">Platform administrators, store owners, and normal customers</div>
-        </div>
-
-        <div className="stat-card stat-stores">
-          <div>
-            <div className="stat-label">
-              Total Active Stores
-            </div>
-            <div className="stat-value">{stats.totalStores}</div>
-          </div>
-          <div className="stat-subtext">Retail storefronts listed and open for customer reviews</div>
-        </div>
-
-        <div className="stat-card stat-ratings">
-          <div>
-            <div className="stat-label">
-              Total Submitted Ratings
-            </div>
-            <div className="stat-value">{stats.totalRatings}</div>
-          </div>
-          <div className="stat-subtext">Verified star ratings submitted across all registered stores</div>
-        </div>
-      </div>
-
-      <div className="card">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
-          <div>
-            <h2 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--text-main)', margin: 0 }}>
-              Quick Management Shortcuts
-            </h2>
-            <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '2px', margin: 0 }}>
-              Direct access to system directories, account listings, and records
-            </p>
+            <AppleButton variant="outline" size="small" style={{ marginRight: '12px' }}>
+              Refresh
+            </AppleButton>
+            <AppleButton variant="primary" size="small">
+              + Add New User
+            </AppleButton>
           </div>
         </div>
-        <div className="btn-group">
-          <Link to="/admin/users" className="btn btn-secondary">
-            Manage Platform Users
-          </Link>
-          <Link to="/admin/stores" className="btn btn-secondary">
-            Manage Store Listings
-          </Link>
-          <Link to="/admin/users/new" className="btn btn-outline">
-            Register Admin / Owner
-          </Link>
-          <Link to="/admin/stores/new" className="btn btn-outline">
-            Create Store Profile
-          </Link>
+      </header>
+
+      <main style={{ padding: 'var(--space-6) var(--space-8)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div className="dashboard-cards">
+            <AppleStat label="Total Users" value={stats.totalUsers} subtext="Platform administrators, store owners, and normal customers" />
+            <AppleStat label="Total Stores" value={stats.totalStores} subtext="Retail storefronts listed and open for customer reviews" />
+            <AppleStat label="Total Ratings" value={stats.totalRatings} subtext="Verified star ratings submitted across all registered stores" />
+          </div>
+
+          <FloatingParticles />
         </div>
-      </div>
+      </main>
     </div>
   );
 }

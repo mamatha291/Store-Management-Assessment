@@ -153,9 +153,8 @@ function Signup() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="e.g. Johnathan Alexander Smith"
+                placeholder="e.g. Alexander Jonathan Miller"
                 className={errors.name ? 'has-error' : ''}
-                autoComplete="name"
                 required
               />
               {errors.name && <div className="field-error">{errors.name}</div>}
@@ -169,9 +168,8 @@ function Signup() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="e.g. user@storeportal.com"
+                placeholder="alexander@example.com"
                 className={errors.email ? 'has-error' : ''}
-                autoComplete="email"
                 required
               />
               {errors.email && <div className="field-error">{errors.email}</div>}
@@ -179,19 +177,15 @@ function Signup() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="streetAddress">
-              Street Address
-              <span className="label-hint">(Max 400 chars combined)</span>
-            </label>
+            <label htmlFor="streetAddress">Street Address / Landmark</label>
             <input
               id="streetAddress"
               type="text"
               name="streetAddress"
               value={formData.streetAddress}
               onChange={handleChange}
-              placeholder="e.g. 742 Evergreen Terrace, Suite 100"
+              placeholder="e.g. 742 Evergreen Terrace, Apt 4B"
               className={errors.address ? 'has-error' : ''}
-              autoComplete="street-address"
               required
             />
           </div>
@@ -205,10 +199,11 @@ function Signup() {
                 name="city"
                 value={formData.city}
                 onChange={handleChange}
-                placeholder="e.g. Springfield"
-                autoComplete="address-level2"
+                placeholder="e.g. Bengaluru"
+                required
               />
             </div>
+
             <div className="form-group">
               <label htmlFor="state">State / Province</label>
               <input
@@ -217,10 +212,11 @@ function Signup() {
                 name="state"
                 value={formData.state}
                 onChange={handleChange}
-                placeholder="e.g. Oregon"
-                autoComplete="address-level1"
+                placeholder="e.g. Karnataka"
+                required
               />
             </div>
+
             <div className="form-group">
               <label htmlFor="zipCode">Postal / Zip Code</label>
               <input
@@ -229,8 +225,8 @@ function Signup() {
                 name="zipCode"
                 value={formData.zipCode}
                 onChange={handleChange}
-                placeholder="e.g. 97477"
-                autoComplete="postal-code"
+                placeholder="e.g. 560001"
+                required
               />
             </div>
           </div>

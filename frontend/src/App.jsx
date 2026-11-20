@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
@@ -13,7 +14,6 @@ import StoreListAdmin from './pages/admin/StoreList';
 import AddStore from './pages/admin/AddStore';
 import UserStoreList from './pages/user/StoreList';
 import OwnerDashboard from './pages/owner/Dashboard';
-import Landing from './pages/Landing';
 
 function App() {
   const { user } = useAuth();
@@ -30,7 +30,7 @@ function App() {
       <Navbar />
       <main className="main-content">
         <Routes>
-          {/* landing page */}
+          {/* Landing page as root */}
           <Route path="/" element={<Landing />} />
 
           {/* public auth routes */}
