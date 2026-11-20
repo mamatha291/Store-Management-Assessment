@@ -39,7 +39,7 @@ function UserDetail() {
 
   if (loading) {
     return (
-      <div className="container" style={{ maxWidth: '960px' }}>
+      <div className="container">
         <div className="dashboard-ambient-mesh">
           <div className="ambient-mesh-orb orb-blue"></div>
           <div className="ambient-mesh-orb orb-emerald"></div>
@@ -52,7 +52,7 @@ function UserDetail() {
 
   if (error || !user) {
     return (
-      <div className="container" style={{ maxWidth: '960px' }}>
+      <div className="container">
         <div className="dashboard-ambient-mesh">
           <div className="ambient-mesh-orb orb-blue"></div>
           <div className="ambient-mesh-orb orb-emerald"></div>
@@ -72,7 +72,7 @@ function UserDetail() {
   }
 
   return (
-    <div className="container" style={{ maxWidth: '980px' }}>
+    <div className="container">
       {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
       <div className="dashboard-ambient-mesh">
         <div className="ambient-mesh-orb orb-blue"></div>

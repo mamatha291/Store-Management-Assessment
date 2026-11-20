@@ -378,9 +378,9 @@ body {
 .container,
 .dashboard-container {
   width: 100%;
-  max-width: min(1560px, 95vw);
+  max-width: min(1760px, 98vw);
   margin: 0 auto;
-  padding: 36px 36px;
+  padding: 32px 24px;
   animation: sysFadeUp 0.6s var(--ease-spring);
   position: relative;
   overflow: hidden;
@@ -389,7 +389,7 @@ body {
 @media (max-width: 900px) {
   .container,
   .dashboard-container {
-    padding: 24px 20px;
+    padding: 20px 14px;
   }
 }
 
@@ -409,9 +409,9 @@ body {
 }
 
 .navbar-container {
-  max-width: min(1560px, 95vw);
+  max-width: min(1760px, 98vw);
   margin: 0 auto;
-  padding: 14px 36px;
+  padding: 14px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2421,8 +2421,8 @@ body {
 
 .profile-bento-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
   padding: 30px;
 }
 

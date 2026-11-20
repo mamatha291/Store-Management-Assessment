@@ -101,7 +101,7 @@ function Profile() {
   if (!currentUser) return null;
 
   return (
-    <div className="container" style={{ maxWidth: '880px' }}>
+    <div className="container">
       {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
       <div className="dashboard-ambient-mesh">
         <div className="ambient-mesh-orb orb-blue"></div>

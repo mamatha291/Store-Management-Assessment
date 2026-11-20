@@ -90,7 +90,7 @@ function AddStore() {
   }
 
   return (
-    <div className="container" style={{ maxWidth: '680px' }}>
+    <div className="container" style={{ maxWidth: '1200px' }}>
       {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
       <div className="dashboard-ambient-mesh">
         <div className="ambient-mesh-orb orb-blue"></div>
