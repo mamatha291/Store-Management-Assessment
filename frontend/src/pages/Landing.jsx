@@ -22,11 +22,6 @@ function Landing() {
 
       {/* Perfectly Centered Hero Content (No Card) */}
       <div className="landing-center-hero">
-        <div className="landing-badge-pill">
-          <span className="badge-pulse-dot dot-green"></span>
-          Store Rating & Directory Portal
-        </div>
-
         <h1 className="landing-simple-title">
           Discover Stores & Share <br />
           <span className="landing-title-gradient">Verified Customer Reviews</span>
