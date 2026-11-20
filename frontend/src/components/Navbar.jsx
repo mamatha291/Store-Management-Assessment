@@ -138,10 +138,8 @@ function Navbar() {
                 <div className="dropdown-user-header">
                   <div className="dropdown-user-name">{user.name}</div>
                   <div className="dropdown-user-email">{user.email}</div>
-                  <div style={{ marginTop: '8px' }}>
-                    <span className={`user-role-text ${user.role === 'ADMIN' ? 'user-role-admin' : user.role === 'OWNER' ? 'user-role-owner' : 'user-role-user'}`}>
-                      {user.role === 'ADMIN' ? 'System Administrator' : user.role === 'OWNER' ? 'Store Owner' : 'Normal Customer'}
-                    </span>
+                  <div className="dropdown-user-role-text">
+                    {user.role === 'ADMIN' ? 'System Administrator' : user.role === 'OWNER' ? 'Store Owner' : 'Normal Customer'}
                   </div>
                 </div>
 

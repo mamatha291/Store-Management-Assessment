@@ -130,9 +130,13 @@ function Profile() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '6px', flexWrap: 'wrap' }}>
               <span style={{ fontSize: '13.5px', color: 'var(--text-muted)' }}>{currentUser.email}</span>
               <span style={{ color: 'var(--text-subtle)' }}>•</span>
-              <span className={`user-role-text ${currentUser.role === 'ADMIN' ? 'user-role-admin' : currentUser.role === 'OWNER' ? 'user-role-owner' : 'user-role-user'}`}>
-                {currentUser.role === 'ADMIN' ? 'Administrator' : currentUser.role === 'OWNER' ? 'Store Owner' : 'Normal Customer'}
-              </span>
+              {currentUser.role === 'ADMIN' ? (
+                <span className="user-role-plain-text">System Administrator</span>
+              ) : (
+                <span className={`user-role-text ${currentUser.role === 'OWNER' ? 'user-role-owner' : 'user-role-user'}`}>
+                  {currentUser.role === 'OWNER' ? 'Store Owner' : 'Normal Customer'}
+                </span>
+              )}
             </div>
           </div>
         </div>

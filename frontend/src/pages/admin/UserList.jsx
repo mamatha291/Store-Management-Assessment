@@ -105,7 +105,7 @@ function UserList() {
   }
 
   function renderRoleBadge(role) {
-    if (role === 'ADMIN') return <span className="user-role-text user-role-admin">Administrator</span>;
+    if (role === 'ADMIN') return <span className="user-role-plain-text">System Administrator</span>;
     if (role === 'OWNER') return <span className="user-role-text user-role-owner">Store Owner</span>;
     return <span className="user-role-text user-role-user">Normal User</span>;
   }
