@@ -78,7 +78,7 @@ function OwnerDashboard() {
 
   if (loading) {
     return (
-      <div className="container" style={{ textAlign: 'center', padding: '60px 20px' }}>
+      <div className="dashboard-container" style={{ textAlign: 'center', padding: '60px 20px' }}>
         <div className="loading-state">
           Loading store owner performance analytics...
         </div>
@@ -88,10 +88,10 @@ function OwnerDashboard() {
 
   if (!dashboard || !dashboard.storeName) {
     return (
-      <div className="container">
+      <div className="dashboard-container">
         <div className="page-header">
           <div>
-            <h1 className="page-title">Store Owner Dashboard</h1>
+            <h1 className="page-title dashboard-title-glow">Store Owner Dashboard</h1>
             <p className="page-subtitle">Manage and track customer feedback for your store</p>
           </div>
         </div>
@@ -110,19 +110,20 @@ function OwnerDashboard() {
   const totalReviews = dashboard.raters.length;
 
   return (
-    <div className="container">
-      {/* Luminous Apple-Style Store Owner Hero Banner */}
+    <div className="dashboard-container">
+      {/* Luminous System Store Owner Hero Banner */}
       <div className="dashboard-hero-wrapper">
         <div className="dashboard-ambient-glow dashboard-ambient-glow-amber"></div>
+        <div className="dashboard-ambient-glow-secondary"></div>
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <div className="dashboard-eyebrow">
-            <span className="dashboard-live-dot"></span>
-            Storefront Telemetry & Customer Feedback Feed
+          <div className="hero-status-pill">
+            <span className="badge-pulse-dot dot-amber"></span>
+            Live Store Analytics & Customer Feedback
           </div>
 
           <div className="page-header" style={{ marginBottom: 0 }}>
             <div>
-              <h1 className="page-title">
+              <h1 className="page-title dashboard-title-glow">
                 {dashboard.storeName}
               </h1>
               <p className="page-subtitle">
@@ -132,7 +133,7 @@ function OwnerDashboard() {
 
             <button 
               type="button" 
-              className="btn btn-secondary" 
+              className="btn btn-secondary btn-apple-glow" 
               onClick={fetchDashboard}
             >
               ↻ Refresh Analytics
@@ -145,13 +146,20 @@ function OwnerDashboard() {
       <div className="dashboard-cards">
         {/* Card 1: Store Profile */}
         <div className="stat-card stat-stores">
+          <div className="stat-card-glow-bg"></div>
           <div>
             <div className="stat-card-header">
               <div className="stat-label">Store Profile</div>
-              <span className="stat-pill-badge badge-green">🏬 Active Store</span>
+              <span className="stat-pill-badge badge-green">
+                <span className="badge-pulse-dot dot-green"></span>
+                Active Store
+              </span>
             </div>
             <div className="stat-value" style={{ fontSize: '26px', lineHeight: 1.2 }}>
               {dashboard.storeName}
+            </div>
+            <div className="stat-progress-bar-track">
+              <div className="stat-progress-bar-fill fill-green" style={{ width: '100%' }}></div>
             </div>
           </div>
           <div className="stat-subtext" style={{ color: 'var(--success-text)', fontWeight: '600' }}>
@@ -161,15 +169,22 @@ function OwnerDashboard() {
 
         {/* Card 2: Average Rating */}
         <div className="stat-card stat-ratings">
+          <div className="stat-card-glow-bg"></div>
           <div>
             <div className="stat-card-header">
               <div className="stat-label">Average Score</div>
-              <span className="stat-pill-badge badge-amber">★ Real-Time</span>
+              <span className="stat-pill-badge badge-amber">
+                <span className="badge-pulse-dot dot-amber"></span>
+                Live Telemetry
+              </span>
             </div>
             <div className="stat-value" style={{ color: 'var(--warning-text)', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{ color: 'var(--star-gold)', filter: 'drop-shadow(0 2px 8px rgba(255, 159, 10, 0.45))' }}>★</span>
               {dashboard.averageRating.toFixed(1)}
               <span style={{ fontSize: '18px', color: 'var(--text-muted)', fontWeight: '600' }}>/ 5.0</span>
+            </div>
+            <div className="stat-progress-bar-track">
+              <div className="stat-progress-bar-fill fill-amber" style={{ width: `${(dashboard.averageRating / 5) * 100}%` }}></div>
             </div>
           </div>
           <div className="stat-subtext">
@@ -179,13 +194,20 @@ function OwnerDashboard() {
 
         {/* Card 3: Total Reviews */}
         <div className="stat-card stat-users">
+          <div className="stat-card-glow-bg"></div>
           <div>
             <div className="stat-card-header">
               <div className="stat-label">Total Reviews</div>
-              <span className="stat-pill-badge badge-blue">👥 Verified</span>
+              <span className="stat-pill-badge badge-blue">
+                <span className="badge-pulse-dot"></span>
+                Verified
+              </span>
             </div>
             <div className="stat-value">
               {totalReviews}
+            </div>
+            <div className="stat-progress-bar-track">
+              <div className="stat-progress-bar-fill fill-blue" style={{ width: totalReviews > 0 ? '75%' : '15%' }}></div>
             </div>
           </div>
           <div className="stat-subtext">
@@ -195,17 +217,17 @@ function OwnerDashboard() {
       </div>
 
       {/* Rating Breakdown Distribution Bar Chart */}
-      <div className="card" style={{ marginBottom: '24px' }}>
-        <h3 style={{ fontSize: '16px', fontWeight: '800', color: 'var(--text-main)', marginBottom: '16px' }}>
-          Rating Distribution Breakdown
+      <div className="card" style={{ marginBottom: '28px' }}>
+        <h3 style={{ fontSize: '17px', fontWeight: '800', color: 'var(--text-main)', marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span>★</span> Rating Distribution Breakdown
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {[5, 4, 3, 2, 1].map((stars) => {
             const count = ratingBreakdown[stars] || 0;
             const pct = totalReviews > 0 ? Math.round((count / totalReviews) * 100) : 0;
             return (
               <div key={stars} style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '13px' }}>
-                <span style={{ width: '45px', fontWeight: '700', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '3px' }}>
+                <span style={{ width: '48px', fontWeight: '700', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   {stars} <span style={{ color: 'var(--star-gold)' }}>★</span>
                 </span>
                 <div style={{ flex: 1, height: '10px', background: 'var(--bg-surface-subtle)', borderRadius: '999px', overflow: 'hidden', border: '1px solid var(--border)' }}>
@@ -218,7 +240,7 @@ function OwnerDashboard() {
                     boxShadow: stars >= 4 ? '0 1px 6px rgba(255, 159, 10, 0.35)' : 'none'
                   }} />
                 </div>
-                <span style={{ width: '80px', textAlign: 'right', fontWeight: '600', color: 'var(--text-muted)' }}>
+                <span style={{ width: '85px', textAlign: 'right', fontWeight: '600', color: 'var(--text-muted)' }}>
                   {count} ({pct}%)
                 </span>
               </div>
@@ -229,17 +251,17 @@ function OwnerDashboard() {
 
       {/* Customer Rating History Table Section */}
       <div className="card">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '22px' }}>
           <div>
             <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--text-main)', margin: 0 }}>
               Customer Feedback & Reviews
             </h3>
-            <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '2px', margin: 0 }}>
+            <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '3px', margin: 0 }}>
               All reviews and star ratings submitted by registered customers
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', width: '100%', maxWidth: '480px' }}>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', width: '100%', maxWidth: '520px' }}>
             <input
               type="text"
               placeholder="Search customer name or email..."
@@ -247,12 +269,14 @@ function OwnerDashboard() {
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{
                 flex: 1,
-                height: '38px',
-                padding: '0 14px',
-                borderRadius: '8px',
+                height: '40px',
+                padding: '0 16px',
+                borderRadius: '12px',
                 border: '1px solid var(--border)',
                 fontSize: '13px',
-                outline: 'none'
+                outline: 'none',
+                background: '#FFFFFF',
+                boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.03)'
               }}
             />
 
@@ -260,14 +284,15 @@ function OwnerDashboard() {
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
               style={{
-                height: '38px',
-                padding: '0 12px',
-                borderRadius: '8px',
+                height: '40px',
+                padding: '0 14px',
+                borderRadius: '12px',
                 border: '1px solid var(--border)',
                 fontSize: '13px',
                 background: '#FFFFFF',
                 fontWeight: '600',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.04)'
               }}
             >
               <option value="newest">Sort: Newest First</option>
@@ -303,8 +328,8 @@ function OwnerDashboard() {
                       <td>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                           <div style={{
-                            width: '36px',
-                            height: '36px',
+                            width: '38px',
+                            height: '38px',
                             borderRadius: '50%',
                             background: 'rgba(0, 113, 227, 0.08)',
                             border: '1px solid rgba(0, 113, 227, 0.22)',
@@ -341,10 +366,13 @@ function OwnerDashboard() {
                           backgroundColor: sentiment.bg,
                           color: sentiment.color,
                           border: `1px solid ${sentiment.border}`,
-                          padding: '3px 9px',
-                          borderRadius: '6px',
+                          padding: '4px 10px',
+                          borderRadius: '8px',
                           fontSize: '12px',
-                          fontWeight: '700'
+                          fontWeight: '700',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px'
                         }}>
                           {sentiment.text}
                         </span>
