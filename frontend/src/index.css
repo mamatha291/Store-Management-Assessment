@@ -2522,6 +2522,328 @@ body {
 }
 
 /* ==========================================================================
+   Users Directory Split Layout & Right-Side Slide-In Details Panel
+   ========================================================================== */
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(42px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.users-layout-split {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.users-table-column {
+  flex: 1;
+  min-width: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.user-detail-panel-wrapper {
+  width: 440px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 86px;
+  max-height: calc(100vh - 110px);
+  animation: slideInRight 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  z-index: 20;
+}
+
+.user-detail-panel {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: saturate(190%) blur(32px);
+  -webkit-backdrop-filter: saturate(190%) blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  box-shadow: 0 20px 50px -10px rgba(24, 39, 75, 0.12),
+              0 2px 8px -1px rgba(24, 39, 75, 0.03),
+              inset 0 1px 2px rgba(255, 255, 255, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 110px);
+}
+
+.panel-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, 0.65);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.panel-badge {
+  font-size: 11.5px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #0071E3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-panel-close {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-panel-close:hover {
+  background: #FF3B30;
+  color: #FFFFFF;
+  border-color: #FF3B30;
+  transform: scale(1.08) rotate(90deg);
+  box-shadow: 0 4px 12px rgba(255, 59, 48, 0.35);
+}
+
+.panel-content-scroll {
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.panel-hero-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.75) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.panel-hero-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.panel-user-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panel-user-email {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.panel-section-title {
+  font-size: 12px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.panel-info-tile {
+  background: rgba(248, 250, 252, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.panel-info-tile:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 113, 227, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.06);
+}
+
+.panel-info-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.panel-info-val {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  word-break: break-word;
+}
+
+.panel-store-card {
+  background: linear-gradient(135deg, rgba(240, 253, 244, 0.7) 0%, rgba(255, 255, 255, 0.85) 100%);
+  border: 1px solid rgba(52, 199, 89, 0.25);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 14px rgba(52, 199, 89, 0.08);
+}
+
+.panel-store-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.panel-store-name {
+  font-size: 15px;
+  font-weight: 750;
+  color: var(--text-main);
+}
+
+.panel-store-email {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.panel-store-address {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.panel-ratings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.panel-rating-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(248, 250, 252, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+}
+
+.panel-rating-store {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.panel-empty-box {
+  padding: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 14px;
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.panel-loading-state {
+  padding: 60px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-muted);
+  font-size: 13.5px;
+}
+
+.panel-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid rgba(0, 113, 227, 0.15);
+  border-top-color: #0071E3;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.data-table tbody tr.active-selected-row {
+  background: rgba(0, 113, 227, 0.07) !important;
+  box-shadow: inset 4px 0 0 #0071E3;
+}
+
+.data-table tbody tr.active-selected-row td {
+  border-bottom-color: rgba(0, 113, 227, 0.2);
+}
+
+@media (max-width: 1120px) {
+  .user-detail-panel-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(450px, 92vw);
+    max-height: 100vh;
+    z-index: 1100;
+    box-shadow: -16px 0 50px rgba(0, 0, 0, 0.25);
+  }
+
+  .user-detail-panel {
+    border-radius: 24px 0 0 24px;
+    height: 100vh;
+    max-height: 100vh;
+  }
+
+  .user-panel-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1050;
+    animation: sysFadeIn 0.3s ease;
+  }
+}
+
+/* ==========================================================================
    Utilities
    ========================================================================== */
 

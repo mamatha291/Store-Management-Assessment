@@ -191,7 +191,7 @@ function StoreListAdmin() {
                     </td>
                     <td style={{ textAlign: 'right', whiteSpace: 'nowrap' }}>
                       <Link
-                        to={store.owner_id ? `/admin/users/${store.owner_id}` : '/admin/users'}
+                        to={store.owner_id ? `/admin/users?userId=${store.owner_id}` : '/admin/users'}
                         className="btn btn-secondary btn-small"
                       >
                         Owner Details →
