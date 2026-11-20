@@ -70,7 +70,6 @@ function Login() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="e.g. admin@storeportal.com"
               autoComplete="email"
               required
             />
@@ -84,8 +83,7 @@ function Login() {
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                autoComplete="current-password"
+              autoComplete="current-password"
                 required
               />
               <button

@@ -127,17 +127,13 @@ function AddStore() {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">
-              Store Name
-              <span className="label-hint">(max 120 characters)</span>
-            </label>
+            <label htmlFor="name">Store Name</label>
             <input
               id="name"
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="e.g. Apex Electronics & Gadgets"
               className={errors.name ? 'has-error' : ''}
               required
             />
@@ -152,7 +148,6 @@ function AddStore() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="contact@storename.com"
               className={errors.email ? 'has-error' : ''}
               required
             />
@@ -160,17 +155,13 @@ function AddStore() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="address">
-              Store Physical Location
-              <span className="label-hint">(max 400 characters)</span>
-            </label>
+            <label htmlFor="address">Store Physical Location</label>
             <textarea
               id="address"
               name="address"
               value={formData.address}
               onChange={handleChange}
               rows="3"
-              placeholder="Enter full physical address, street, city, postal code"
               className={errors.address ? 'has-error' : ''}
               required
             />

@@ -127,17 +127,13 @@ function AddUser() {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">
-              Full Name
-              <span className="label-hint">(20 to 60 characters)</span>
-            </label>
+            <label htmlFor="name">Full Name</label>
             <input
               id="name"
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="e.g. Jonathan Edwards Retailer"
               className={errors.name ? 'has-error' : ''}
               required
             />
@@ -153,8 +149,7 @@ function AddUser() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="user@example.com"
-                className={errors.email ? 'has-error' : ''}
+              className={errors.email ? 'has-error' : ''}
                 required
               />
               {errors.email && <div className="field-error">{errors.email}</div>}
@@ -171,17 +166,13 @@ function AddUser() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">
-              Account Password
-              <span className="label-hint">(8-16 chars, 1 uppercase, 1 special)</span>
-            </label>
+            <label htmlFor="password">Account Password</label>
             <input
               id="password"
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="e.g. User@1234"
               className={errors.password ? 'has-error' : ''}
               required
             />
@@ -189,17 +180,13 @@ function AddUser() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="address">
-              Full Address
-              <span className="label-hint">(max 400 characters)</span>
-            </label>
+            <label htmlFor="address">Full Address</label>
             <textarea
               id="address"
               name="address"
               value={formData.address}
               onChange={handleChange}
               rows="3"
-              placeholder="Enter complete postal street address"
               className={errors.address ? 'has-error' : ''}
               required
             />

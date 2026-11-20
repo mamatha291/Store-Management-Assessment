@@ -243,7 +243,6 @@ function Profile() {
                     type={showCurrent ? 'text' : 'password'}
                     value={currentPassword}
                     onChange={(e) => setCurrentPassword(e.target.value)}
-                    placeholder="Enter your current password"
                     required
                   />
                   <button
@@ -258,17 +257,13 @@ function Profile() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="newPassword">
-                  New Password
-                  <span className="label-hint">(8-16 chars, 1 uppercase, 1 special)</span>
-                </label>
+                <label htmlFor="newPassword">New Password</label>
                 <div className="password-input-wrapper">
                   <input
                     id="newPassword"
                     type={showNew ? 'text' : 'password'}
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
-                    placeholder="Enter new strong password"
                     required
                   />
                   <button
@@ -290,7 +285,6 @@ function Profile() {
                     type={showConfirm ? 'text' : 'password'}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    placeholder="Re-enter new password"
                     required
                   />
                   <button
