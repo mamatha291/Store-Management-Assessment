@@ -62,39 +62,59 @@ function UserStoreList() {
 
   return (
     <div className="container">
-      <div className="page-header">
+      {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
+      <div className="dashboard-ambient-mesh">
+        <div className="ambient-mesh-orb orb-blue"></div>
+        <div className="ambient-mesh-orb orb-emerald"></div>
+        <div className="ambient-mesh-orb orb-amber"></div>
+      </div>
+
+      <div className="page-header" style={{ position: 'relative', zIndex: 1 }}>
         <div>
-          <h1 className="page-title">Explore & Review Stores</h1>
+          <h1 className="page-title dashboard-title-glow">Explore & Review Stores</h1>
           <p className="page-subtitle">Browse community stores, see overall ratings, and submit your personal rating</p>
         </div>
       </div>
 
       {/* Top Metric Cards */}
       <div className="dashboard-stats-grid">
-        <div className="stat-card square-card">
-          <div className="stat-label">
-            Available Stores
+        <div className="stat-card stat-users">
+          <div className="stat-card-glow-bg"></div>
+          <div>
+            <div className="stat-card-header">
+              <div className="stat-label">Available Stores</div>
+            </div>
+            <div className="stat-value">{stores.length}</div>
           </div>
-          <div className="stat-value">{stores.length}</div>
-          <div className="stat-subtext">Active store locations</div>
+          <div className="stat-subtext">Active verified storefronts ready for exploration</div>
         </div>
 
-        <div className="stat-card square-card stat-stores">
-          <div className="stat-label">
-            Stores You've Rated
+        <div className="stat-card stat-stores">
+          <div className="stat-card-glow-bg"></div>
+          <div>
+            <div className="stat-card-header">
+              <div className="stat-label">Stores You've Rated</div>
+            </div>
+            <div className="stat-value" style={{ color: 'var(--success-text)' }}>{ratedCount}</div>
           </div>
-          <div className="stat-value" style={{ color: 'var(--success)' }}>{ratedCount}</div>
           <div className="stat-subtext">
-            {stores.length > 0 ? `${Math.round((ratedCount / stores.length) * 100)}% of stores reviewed by you` : '0% reviewed'}
+            {stores.length > 0 ? `${Math.round((ratedCount / stores.length) * 100)}% of platform stores reviewed by you` : '0% reviewed'}
           </div>
         </div>
 
-        <div className="stat-card square-card stat-ratings">
-          <div className="stat-label">
-            Platform Score
+        <div className="stat-card stat-ratings">
+          <div className="stat-card-glow-bg"></div>
+          <div>
+            <div className="stat-card-header">
+              <div className="stat-label">Community Score</div>
+            </div>
+            <div className="stat-value" style={{ color: 'var(--warning-text)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ color: 'var(--star-gold)', filter: 'drop-shadow(0 2px 8px rgba(255, 159, 10, 0.45))' }}>★</span>
+              {avgOverallRating}
+              <span style={{ fontSize: '18px', color: 'var(--text-muted)', fontWeight: '600' }}>/ 5.0</span>
+            </div>
           </div>
-          <div className="stat-value" style={{ color: 'var(--warning)' }}>★ {avgOverallRating}</div>
-          <div className="stat-subtext">Overall community rating</div>
+          <div className="stat-subtext">Platform-wide average customer rating</div>
         </div>
       </div>
 

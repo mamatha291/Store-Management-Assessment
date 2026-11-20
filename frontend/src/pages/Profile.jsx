@@ -101,46 +101,35 @@ function Profile() {
   if (!currentUser) return null;
 
   return (
-    <div className="container" style={{ maxWidth: '640px' }}>
-      <div className="page-header" style={{ textAlign: 'center', justifyContent: 'center' }}>
+    <div className="container" style={{ maxWidth: '880px' }}>
+      {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
+      <div className="dashboard-ambient-mesh">
+        <div className="ambient-mesh-orb orb-blue"></div>
+        <div className="ambient-mesh-orb orb-emerald"></div>
+        <div className="ambient-mesh-orb orb-amber"></div>
+      </div>
+
+      <div className="page-header" style={{ position: 'relative', zIndex: 1, textAlign: 'center', justifyContent: 'center' }}>
         <div>
-          <h1 className="page-title">Account Profile</h1>
-          <p className="page-subtitle">Manage your personal credentials, address, and account security</p>
+          <h1 className="page-title dashboard-title-glow">Account Profile & Security</h1>
+          <p className="page-subtitle">Manage personal credentials, registered address, and cryptographic security settings</p>
         </div>
       </div>
 
-      {/* User Details Card */}
-      <div className="card" style={{ padding: '0', overflow: 'hidden' }}>
-        <div style={{
-          padding: '28px 24px',
-          background: '#FAFAFC',
-          borderBottom: '1px solid var(--border)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '18px'
-        }}>
-          <div style={{
-            width: '64px',
-            height: '64px',
-            borderRadius: '50%',
-            background: currentUser.role === 'ADMIN' ? 'linear-gradient(135deg, #0071E3, #47A3FF)' : currentUser.role === 'OWNER' ? 'linear-gradient(135deg, #34C759, #30D158)' : 'linear-gradient(135deg, #1D1D1F, #424245)',
-            color: '#FFFFFF',
-            fontWeight: '700',
-            fontSize: '22px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 4px 14px rgba(0,0,0,0.08)'
-          }}>
+      {/* User Details Glassmorphic Bento Card */}
+      <div className="profile-card-glass">
+        {/* Profile Hero Header Banner */}
+        <div className="profile-hero-banner">
+          <div className={`profile-avatar-glow ${currentUser.role === 'ADMIN' ? 'profile-avatar-admin' : currentUser.role === 'OWNER' ? 'profile-avatar-owner' : 'profile-avatar-user'}`}>
             {getInitials(currentUser.name)}
           </div>
           <div>
-            <h2 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--text-main)', margin: 0 }}>
+            <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--text-main)', margin: 0, letterSpacing: '-0.02em' }}>
               {currentUser.name}
             </h2>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
-              <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{currentUser.email}</span>
-              <span>•</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '6px', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '13.5px', color: 'var(--text-muted)' }}>{currentUser.email}</span>
+              <span style={{ color: 'var(--text-subtle)' }}>•</span>
               <span className={`user-role-text ${currentUser.role === 'ADMIN' ? 'user-role-admin' : currentUser.role === 'OWNER' ? 'user-role-owner' : 'user-role-user'}`}>
                 {currentUser.role === 'ADMIN' ? 'Administrator' : currentUser.role === 'OWNER' ? 'Store Owner' : 'Normal Customer'}
               </span>
@@ -148,49 +137,47 @@ function Profile() {
           </div>
         </div>
 
-        <div style={{ padding: '24px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '28px' }}>
-            <div>
-              <div style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>
-                Full Legal Name
-              </div>
-              <div style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-main)', marginTop: '4px' }}>
-                {currentUser.name}
-              </div>
-            </div>
+        {/* Bento Information Grid */}
+        <div className="profile-bento-grid">
+          <div className="profile-bento-tile">
+            <div className="profile-bento-label">Full Legal Name</div>
+            <div className="profile-bento-value">{currentUser.name}</div>
+          </div>
 
-            <div>
-              <div style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>
-                Email Address
-              </div>
-              <div style={{ fontSize: '15px', fontWeight: '600', color: 'var(--text-main)', marginTop: '4px' }}>
-                {currentUser.email}
-              </div>
-            </div>
+          <div className="profile-bento-tile">
+            <div className="profile-bento-label">Primary Email Address</div>
+            <div className="profile-bento-value">{currentUser.email}</div>
+          </div>
 
-            <div>
-              <div style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>
-                System Role
-              </div>
-              <div style={{ fontSize: '15px', fontWeight: '600', color: 'var(--text-main)', marginTop: '4px' }}>
-                {currentUser.role === 'ADMIN' ? 'System Administrator' : currentUser.role === 'OWNER' ? 'Store Owner' : 'Normal Customer'}
-              </div>
-            </div>
-
-            <div>
-              <div style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>
-                Delivery / Registered Address
-              </div>
-              <div style={{ fontSize: '14px', fontWeight: '500', color: 'var(--text-main)', marginTop: '4px', lineHeight: '1.5' }}>
-                {currentUser.address || 'No address specified'}
-              </div>
+          <div className="profile-bento-tile">
+            <div className="profile-bento-label">Platform Role & Privileges</div>
+            <div className="profile-bento-value" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span>{currentUser.role === 'ADMIN' ? 'System Administrator' : currentUser.role === 'OWNER' ? 'Store Owner' : 'Normal Customer'}</span>
             </div>
           </div>
 
-          {/* Action Button: Reset Password */}
+          <div className="profile-bento-tile">
+            <div className="profile-bento-label">Registered / Delivery Address</div>
+            <div className="profile-bento-value" style={{ fontSize: '14px', lineHeight: '1.45' }}>
+              {currentUser.address || 'No physical address specified'}
+            </div>
+          </div>
+        </div>
+
+        {/* Security & Password Action Bar */}
+        <div className="profile-security-card">
+          <div>
+            <div style={{ fontSize: '15px', fontWeight: '750', color: 'var(--text-main)' }}>
+              Account Credentials & Security
+            </div>
+            <div style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '3px' }}>
+              Bcrypt cryptographic salted hash protects your access credentials
+            </div>
+          </div>
+
           <button 
             type="button" 
-            className="btn btn-primary btn-full"
+            className="btn btn-primary btn-apple-glow"
             onClick={() => {
               setError('');
               setSuccess('');
@@ -202,36 +189,31 @@ function Profile() {
         </div>
       </div>
 
-      {/* Reset Password Modal */}
+      {/* Reset Password Glassmorphic Modal */}
       {showResetModal && (
-        <div style={{
-          position: 'fixed',
-          inset: 0,
-          backgroundColor: 'rgba(15, 23, 42, 0.55)',
-          backdropFilter: 'blur(6px)',
-          zIndex: 200,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '20px'
-        }}>
-          <div style={{
-            background: '#FFFFFF',
-            borderRadius: '16px',
-            maxWidth: '460px',
-            width: '100%',
-            padding: '28px',
-            boxShadow: 'var(--shadow-lg)',
-            border: '1px solid var(--border)'
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
-              <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--text-main)', margin: 0 }}>
+        <div className="profile-modal-overlay">
+          <div className="profile-modal-card">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--text-main)', margin: 0, letterSpacing: '-0.02em' }}>
                 Change Password
               </h3>
               <button 
                 type="button" 
                 onClick={() => setShowResetModal(false)}
-                style={{ background: 'none', border: 'none', fontSize: '18px', cursor: 'pointer', color: 'var(--text-muted)' }}
+                style={{
+                  background: 'rgba(0, 0, 0, 0.05)',
+                  border: 'none',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  fontSize: '15px',
+                  cursor: 'pointer',
+                  color: 'var(--text-muted)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'background 0.2s ease'
+                }}
               >
                 ✕
               </button>
@@ -318,7 +300,7 @@ function Profile() {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+              <div style={{ display: 'flex', gap: '12px', marginTop: '24px' }}>
                 <button
                   type="button"
                   className="btn btn-secondary"
@@ -329,7 +311,7 @@ function Profile() {
                 </button>
                 <button
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn btn-primary btn-apple-glow"
                   disabled={submitting}
                   style={{ flex: 1 }}
                 >

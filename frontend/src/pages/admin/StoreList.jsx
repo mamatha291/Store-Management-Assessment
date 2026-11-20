@@ -59,13 +59,20 @@ function StoreListAdmin() {
 
   return (
     <div className="container">
+      {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
+      <div className="dashboard-ambient-mesh">
+        <div className="ambient-mesh-orb orb-blue"></div>
+        <div className="ambient-mesh-orb orb-emerald"></div>
+        <div className="ambient-mesh-orb orb-amber"></div>
+      </div>
+
       {/* Page Header */}
-      <div className="page-header">
+      <div className="page-header" style={{ position: 'relative', zIndex: 1 }}>
         <div>
-          <h1 className="page-title">Store Directory</h1>
+          <h1 className="page-title dashboard-title-glow">Store Directory</h1>
           <p className="page-subtitle">Search, filter, and inspect registered stores, locations, and average ratings</p>
         </div>
-        <Link to="/admin/stores/new" className="btn btn-success">
+        <Link to="/admin/stores/new" className="btn btn-success btn-apple-glow">
           + Add New Store
         </Link>
       </div>

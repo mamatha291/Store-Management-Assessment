@@ -90,13 +90,20 @@ function AddStore() {
   }
 
   return (
-    <div className="container" style={{ maxWidth: '640px' }}>
-      <div className="page-header">
+    <div className="container" style={{ maxWidth: '680px' }}>
+      {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
+      <div className="dashboard-ambient-mesh">
+        <div className="ambient-mesh-orb orb-blue"></div>
+        <div className="ambient-mesh-orb orb-emerald"></div>
+        <div className="ambient-mesh-orb orb-amber"></div>
+      </div>
+
+      <div className="page-header" style={{ position: 'relative', zIndex: 1 }}>
         <div>
           <Link to="/admin/stores" style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-block', marginBottom: '8px' }}>
             ← Back to Store Directory
           </Link>
-          <h1 className="page-title">Register New Store</h1>
+          <h1 className="page-title dashboard-title-glow">Register New Store</h1>
           <p className="page-subtitle">Create a verified store profile and assign an existing Store Owner</p>
         </div>
       </div>
@@ -194,13 +201,13 @@ function AddStore() {
           <div className="btn-group mt-20">
             <button 
               type="submit" 
-              className="btn btn-primary"
+              className="btn btn-primary btn-apple-glow"
               style={{ flex: 1 }}
               disabled={submitting}
             >
               {submitting ? 'Registering Store...' : 'Register Store'}
             </button>
-            <Link to="/admin/stores" className="btn btn-outline">
+            <Link to="/admin/stores" className="btn btn-secondary">
               Cancel
             </Link>
           </div>

@@ -57,16 +57,23 @@ function UserDetail() {
   }
 
   return (
-    <div className="container" style={{ maxWidth: '800px' }}>
-      <div className="page-header">
+    <div className="container" style={{ maxWidth: '840px' }}>
+      {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
+      <div className="dashboard-ambient-mesh">
+        <div className="ambient-mesh-orb orb-blue"></div>
+        <div className="ambient-mesh-orb orb-emerald"></div>
+        <div className="ambient-mesh-orb orb-amber"></div>
+      </div>
+
+      <div className="page-header" style={{ position: 'relative', zIndex: 1 }}>
         <div>
           <Link to="/admin/users" style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-block', marginBottom: '8px' }}>
             ← Back to Users Directory
           </Link>
-          <h1 className="page-title">User Account Dossier</h1>
+          <h1 className="page-title dashboard-title-glow">User Account Dossier</h1>
           <p className="page-subtitle">Detailed account profile and associated activity for User #{user.id}</p>
         </div>
-        <Link to="/admin/users" className="btn btn-outline">
+        <Link to="/admin/users" className="btn btn-secondary btn-apple-glow">
           Back to Directory
         </Link>
       </div>

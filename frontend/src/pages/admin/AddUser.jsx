@@ -90,13 +90,20 @@ function AddUser() {
   }
 
   return (
-    <div className="container" style={{ maxWidth: '640px' }}>
-      <div className="page-header">
+    <div className="container" style={{ maxWidth: '680px' }}>
+      {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
+      <div className="dashboard-ambient-mesh">
+        <div className="ambient-mesh-orb orb-blue"></div>
+        <div className="ambient-mesh-orb orb-emerald"></div>
+        <div className="ambient-mesh-orb orb-amber"></div>
+      </div>
+
+      <div className="page-header" style={{ position: 'relative', zIndex: 1 }}>
         <div>
           <Link to="/admin/users" style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-block', marginBottom: '8px' }}>
             ← Back to Users Directory
           </Link>
-          <h1 className="page-title">Create New User Account</h1>
+          <h1 className="page-title dashboard-title-glow">Create New User Account</h1>
           <p className="page-subtitle">Register a System Administrator, Store Owner, or Normal Customer</p>
         </div>
       </div>
@@ -198,13 +205,13 @@ function AddUser() {
           <div className="btn-group mt-20">
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary btn-apple-glow"
               style={{ flex: 1 }}
               disabled={submitting}
             >
               {submitting ? 'Creating Profile...' : 'Save & Create User'}
             </button>
-            <Link to="/admin/users" className="btn btn-outline">
+            <Link to="/admin/users" className="btn btn-secondary">
               Cancel
             </Link>
           </div>

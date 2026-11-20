@@ -111,6 +111,13 @@ function OwnerDashboard() {
 
   return (
     <div className="dashboard-container">
+      {/* Ambient Chromatic Backdrop Mesh for Glassmorphic Depth */}
+      <div className="dashboard-ambient-mesh">
+        <div className="ambient-mesh-orb orb-blue"></div>
+        <div className="ambient-mesh-orb orb-emerald"></div>
+        <div className="ambient-mesh-orb orb-amber"></div>
+      </div>
+
       {/* Luminous System Store Owner Hero Banner */}
       <div className="dashboard-hero-wrapper">
         <div className="dashboard-ambient-glow dashboard-ambient-glow-amber"></div>
