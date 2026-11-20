@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
 import api from '../../api/axios';
 
 function AdminDashboard() {
-  const { user } = useAuth();
   const [stats, setStats] = useState({ totalUsers: 0, totalStores: 0, totalRatings: 0 });
   const [loading, setLoading] = useState(true);
 
@@ -32,34 +30,6 @@ function AdminDashboard() {
 
   return (
     <div className="dashboard-container">
-      {/* Luminous System Dashboard Hero Banner */}
-      <div className="dashboard-hero-wrapper">
-        <div className="dashboard-ambient-glow"></div>
-        <div className="dashboard-ambient-glow-secondary"></div>
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <div className="page-header" style={{ marginBottom: 0 }}>
-            <div>
-              <div className="hero-status-pill">
-                <span className="badge-pulse-dot dot-green"></span>
-                System Operational • Live Telemetry
-              </div>
-              <h1 className="page-title dashboard-title-glow">Admin Dashboard</h1>
-              <p className="page-subtitle">
-                Welcome back, {user?.name || 'Administrator'} • Platform metrics, management actions, and infrastructure telemetry
-              </p>
-            </div>
-            <div className="btn-group">
-              <Link to="/admin/users/new" className="btn btn-primary btn-apple-glow">
-                + Add New User
-              </Link>
-              <Link to="/admin/stores/new" className="btn btn-success btn-apple-glow">
-                + Add New Store
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Dynamic Bento Stat Cards */}
       <div className="dashboard-cards">
         <div className="stat-card stat-users">
