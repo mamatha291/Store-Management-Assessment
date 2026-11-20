@@ -113,15 +113,18 @@ function Navbar() {
               onClick={() => setDropdownOpen(!dropdownOpen)}
               aria-expanded={dropdownOpen}
               aria-label="User account options"
+              title={`${user.name} - Profile & Logout`}
             >
-              <div className={`navbar-avatar ${user.role === 'ADMIN' ? 'avatar-admin' : user.role === 'OWNER' ? 'avatar-owner' : 'avatar-user'}`}>
-                {getInitials(user.name)}
+              <div className={`navbar-avatar-icon ${user.role === 'ADMIN' ? 'avatar-admin' : user.role === 'OWNER' ? 'avatar-owner' : 'avatar-user'}`}>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
               </div>
-              <span className="navbar-profile-name">{user.name ? user.name.split(' ')[0] : 'Account'}</span>
               <svg
                 className={`navbar-chevron ${dropdownOpen ? 'open' : ''}`}
-                width="12"
-                height="12"
+                width="11"
+                height="11"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -153,7 +156,12 @@ function Navbar() {
                     setMobileMenuOpen(false);
                   }}
                 >
-                  <span className="dropdown-item-icon">👤</span>
+                  <div className="dropdown-item-icon-box icon-box-blue">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
                   <span>My Profile</span>
                 </Link>
 
@@ -166,7 +174,13 @@ function Navbar() {
                     handleLogout();
                   }}
                 >
-                  <span className="dropdown-item-icon">🚪</span>
+                  <div className="dropdown-item-icon-box icon-box-red">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                      <polyline points="16 17 21 12 16 7"></polyline>
+                      <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                  </div>
                   <span>Sign Out</span>
                 </button>
               </div>
