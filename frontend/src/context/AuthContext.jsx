@@ -41,8 +41,30 @@ export function AuthProvider({ children }) {
 
   if (loading) {
     return (
-      <div className="loading-state" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '15px' }}>
-        Loading application...
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '15px',
+        color: 'var(--apple-text-secondary)',
+        background: 'var(--apple-bg-page)'
+      }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+          <div className="loading-spinner" style={{
+            width: '24px', height: '24px',
+            border: '2px solid var(--apple-divider)',
+            borderTopColor: 'var(--apple-blue)',
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite'
+          }} />
+          <span>Loading application...</span>
+        </div>
+        <style>{`
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
       </div>
     );
   }

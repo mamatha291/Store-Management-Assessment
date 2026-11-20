@@ -26,10 +26,12 @@ function Navbar() {
     USER: 'role-user'
   };
 
+  const homePath = user.role === 'ADMIN' ? '/admin' : user.role === 'OWNER' ? '/owner' : '/stores';
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="brand" onClick={() => setMobileMenuOpen(false)}>
+        <Link to={homePath} className="brand" onClick={() => setMobileMenuOpen(false)}>
           <span>Store Portal</span>
           <span className={`brand-badge ${roleClass[user.role] || ''}`}>
             {roleLabels[user.role] || user.role}
