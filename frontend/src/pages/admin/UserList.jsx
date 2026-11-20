@@ -441,7 +441,10 @@ function UserList() {
                   )}
 
                   {/* Panel Footer Action */}
-                  <div style={{ marginTop: '8px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px' }}>
+                    <Link to={`/admin/users/${selectedUser.id}`} className="btn btn-primary btn-apple-glow btn-full text-center">
+                      Open Full Dossier Page ↗
+                    </Link>
                     <button type="button" className="btn btn-secondary btn-full" onClick={closeDetails}>
                       Done Inspecting
                     </button>

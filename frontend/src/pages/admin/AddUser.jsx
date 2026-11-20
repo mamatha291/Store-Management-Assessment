@@ -98,11 +98,15 @@ function AddUser() {
         <div className="ambient-mesh-orb orb-amber"></div>
       </div>
 
-      <div className="page-header" style={{ position: 'relative', zIndex: 1 }}>
+      {/* Standalone Breadcrumb Pill */}
+      <div style={{ position: 'relative', zIndex: 2 }}>
+        <Link to="/admin/users" className="page-breadcrumb">
+          ← Back to Users Directory
+        </Link>
+      </div>
+
+      <div className="page-header" style={{ position: 'relative', zIndex: 1, marginTop: '4px' }}>
         <div>
-          <Link to="/admin/users" style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-block', marginBottom: '8px' }}>
-            ← Back to Users Directory
-          </Link>
           <h1 className="page-title dashboard-title-glow">Create New User Account</h1>
           <p className="page-subtitle">Register a System Administrator, Store Owner, or Normal Customer</p>
         </div>

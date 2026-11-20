@@ -98,11 +98,15 @@ function AddStore() {
         <div className="ambient-mesh-orb orb-amber"></div>
       </div>
 
-      <div className="page-header" style={{ position: 'relative', zIndex: 1 }}>
+      {/* Standalone Breadcrumb Pill */}
+      <div style={{ position: 'relative', zIndex: 2 }}>
+        <Link to="/admin/stores" className="page-breadcrumb">
+          ← Back to Store Directory
+        </Link>
+      </div>
+
+      <div className="page-header" style={{ position: 'relative', zIndex: 1, marginTop: '4px' }}>
         <div>
-          <Link to="/admin/stores" style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-block', marginBottom: '8px' }}>
-            ← Back to Store Directory
-          </Link>
           <h1 className="page-title dashboard-title-glow">Register New Store</h1>
           <p className="page-subtitle">Create a verified store profile and assign an existing Store Owner</p>
         </div>

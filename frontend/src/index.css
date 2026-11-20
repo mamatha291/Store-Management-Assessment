@@ -571,8 +571,37 @@ body {
 }
 
 /* ==========================================================================
-   Page Headers (System Clean Typography)
+   Page Headers & Breadcrumb Navigation (System Clean Typography)
    ========================================================================== */
+
+.page-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 18px;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: saturate(190%) blur(20px);
+  -webkit-backdrop-filter: saturate(190%) blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+}
+
+.page-breadcrumb:hover {
+  background: #FFFFFF;
+  color: #0071E3;
+  transform: translateX(-4px);
+  box-shadow: 0 8px 24px rgba(0, 113, 227, 0.18), inset 0 1px 1px rgba(255, 255, 255, 1);
+}
 
 .page-header {
   display: flex;
