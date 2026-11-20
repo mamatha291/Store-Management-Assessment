@@ -37,10 +37,6 @@ function AdminDashboard() {
           <div>
             <div className="stat-card-header">
               <div className="stat-label">Total Registered Users</div>
-              <span className="stat-pill-badge badge-blue">
-                <span className="badge-pulse-dot"></span>
-                Directory
-              </span>
             </div>
             <div className="stat-value">{stats.totalUsers}</div>
             <div className="stat-progress-bar-track">
@@ -55,10 +51,6 @@ function AdminDashboard() {
           <div>
             <div className="stat-card-header">
               <div className="stat-label">Total Active Stores</div>
-              <span className="stat-pill-badge badge-green">
-                <span className="badge-pulse-dot dot-green"></span>
-                Verified
-              </span>
             </div>
             <div className="stat-value">{stats.totalStores}</div>
             <div className="stat-progress-bar-track">
@@ -73,10 +65,6 @@ function AdminDashboard() {
           <div>
             <div className="stat-card-header">
               <div className="stat-label">Total Submitted Ratings</div>
-              <span className="stat-pill-badge badge-amber">
-                <span className="badge-pulse-dot dot-amber"></span>
-                Telemetry
-              </span>
             </div>
             <div className="stat-value">{stats.totalRatings}</div>
             <div className="stat-progress-bar-track">
@@ -90,7 +78,6 @@ function AdminDashboard() {
       {/* Interactive Bento Shortcut Actions */}
       <div className="dashboard-shortcuts-section">
         <div className="shortcuts-header">
-          <span className="shortcuts-eyebrow">Direct Actions</span>
           <h2 className="shortcuts-title">Management Directory & Operations</h2>
           <p className="shortcuts-subtitle">Instant navigation across platform user records and storefront configurations</p>
         </div>
@@ -98,7 +85,6 @@ function AdminDashboard() {
         <div className="shortcuts-grid">
           <Link to="/admin/users" className="shortcut-card">
             <div className="shortcut-card-top">
-              <div className="shortcut-icon-wrapper icon-users">👥</div>
               <span className="shortcut-arrow">→</span>
             </div>
             <div className="shortcut-info">
@@ -109,7 +95,6 @@ function AdminDashboard() {
 
           <Link to="/admin/stores" className="shortcut-card">
             <div className="shortcut-card-top">
-              <div className="shortcut-icon-wrapper icon-stores">🏪</div>
               <span className="shortcut-arrow">→</span>
             </div>
             <div className="shortcut-info">
@@ -120,7 +105,6 @@ function AdminDashboard() {
 
           <Link to="/admin/users/new" className="shortcut-card">
             <div className="shortcut-card-top">
-              <div className="shortcut-icon-wrapper icon-newuser">✨</div>
               <span className="shortcut-arrow">→</span>
             </div>
             <div className="shortcut-info">
@@ -131,7 +115,6 @@ function AdminDashboard() {
 
           <Link to="/admin/stores/new" className="shortcut-card">
             <div className="shortcut-card-top">
-              <div className="shortcut-icon-wrapper icon-newstore">📍</div>
               <span className="shortcut-arrow">→</span>
             </div>
             <div className="shortcut-info">

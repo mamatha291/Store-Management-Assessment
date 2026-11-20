@@ -979,8 +979,9 @@ body {
 
 .shortcut-card-top {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  margin-bottom: 8px;
 }
 
 .shortcut-icon-wrapper {
