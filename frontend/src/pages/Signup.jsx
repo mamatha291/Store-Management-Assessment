@@ -153,7 +153,6 @@ function Signup() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="e.g. Alexander Jonathan Miller"
                 className={errors.name ? 'has-error' : ''}
                 required
               />
@@ -168,7 +167,6 @@ function Signup() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="alexander@example.com"
                 className={errors.email ? 'has-error' : ''}
                 required
               />
@@ -184,7 +182,6 @@ function Signup() {
               name="streetAddress"
               value={formData.streetAddress}
               onChange={handleChange}
-              placeholder="e.g. 742 Evergreen Terrace, Apt 4B"
               className={errors.address ? 'has-error' : ''}
               required
             />
@@ -199,7 +196,6 @@ function Signup() {
                 name="city"
                 value={formData.city}
                 onChange={handleChange}
-                placeholder="e.g. Bengaluru"
                 required
               />
             </div>
@@ -212,7 +208,6 @@ function Signup() {
                 name="state"
                 value={formData.state}
                 onChange={handleChange}
-                placeholder="e.g. Karnataka"
                 required
               />
             </div>
@@ -225,7 +220,6 @@ function Signup() {
                 name="zipCode"
                 value={formData.zipCode}
                 onChange={handleChange}
-                placeholder="e.g. 560001"
                 required
               />
             </div>
@@ -245,7 +239,6 @@ function Signup() {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  placeholder="e.g. Secure@123"
                   className={errors.password ? 'has-error' : ''}
                   autoComplete="new-password"
                   required
@@ -282,7 +275,6 @@ function Signup() {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  placeholder="Re-enter password"
                   className={errors.confirmPassword ? 'has-error' : ''}
                   autoComplete="new-password"
                   required
