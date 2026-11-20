@@ -411,7 +411,7 @@ function Landing() {
 
           {/* Dynamic Role Showcase Panel */}
           <div className="apple-role-panel">
-            <div className="apple-role-panel-info">
+            <div key={activeTab} className="apple-role-panel-info">
               <span className={`apple-role-pill role-pill-${activeTab}`}>
                 {roleInfo[activeTab].badge}
               </span>
@@ -444,7 +444,7 @@ function Landing() {
             </div>
 
             <div className="apple-role-panel-mock">
-              <div className="apple-mock-card">
+              <div key={activeTab} className="apple-mock-card">
                 <div className="apple-mock-header">
                   <span className="apple-mock-dot red"></span>
                   <span className="apple-mock-dot yellow"></span>

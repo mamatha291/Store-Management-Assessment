@@ -35,9 +35,10 @@ function StarRating({ value, onChange, readOnly, size = 'medium' }) {
             aria-label={`${star} star`}
             style={{
               fontSize: `${starSize}px`,
-              color: isFilled ? '#FFD700' : 'var(--apple-divider)',
-              transform: isFilled && isAnimating ? 'scale(1.2)' : 'scale(1)',
-              transition: 'color 100ms ease, transform 100ms ease',
+              color: isFilled ? '#FF9F0A' : 'var(--apple-divider, #D2D2D7)',
+              transform: isFilled && isAnimating ? 'scale(1.3) rotate(-8deg)' : 'scale(1)',
+              transition: 'color 180ms ease, transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1), filter 180ms ease',
+              filter: isFilled ? 'drop-shadow(0 2px 6px rgba(255, 159, 10, 0.45))' : 'none',
               cursor: !readOnly ? 'pointer' : 'default',
               display: 'inline-block',
               userSelect: 'none'

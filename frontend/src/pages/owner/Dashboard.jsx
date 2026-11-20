@@ -111,39 +111,50 @@ function OwnerDashboard() {
 
   return (
     <div className="container">
-      {/* Header Banner */}
-      <div className="page-header">
-        <div>
-          <h1 className="page-title">
-            {dashboard.storeName}
-          </h1>
-          <p className="page-subtitle">
-            Customer rating analytics, sentiment distribution, and review history
-          </p>
-        </div>
+      {/* Luminous Apple-Style Store Owner Hero Banner */}
+      <div className="dashboard-hero-wrapper">
+        <div className="dashboard-ambient-glow dashboard-ambient-glow-amber"></div>
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <div className="dashboard-eyebrow">
+            <span className="dashboard-live-dot"></span>
+            Storefront Telemetry & Customer Feedback Feed
+          </div>
 
-        <button 
-          type="button" 
-          className="btn btn-secondary" 
-          onClick={fetchDashboard}
-        >
-          Refresh Analytics
-        </button>
+          <div className="page-header" style={{ marginBottom: 0 }}>
+            <div>
+              <h1 className="page-title">
+                {dashboard.storeName}
+              </h1>
+              <p className="page-subtitle">
+                Customer rating analytics, sentiment distribution, and review history
+              </p>
+            </div>
+
+            <button 
+              type="button" 
+              className="btn btn-secondary" 
+              onClick={fetchDashboard}
+            >
+              ↻ Refresh Analytics
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Top Metric Cards */}
       <div className="dashboard-cards">
         {/* Card 1: Store Profile */}
-        <div className="stat-card">
+        <div className="stat-card stat-stores">
           <div>
-            <div className="stat-label">
-              Store Profile
+            <div className="stat-card-header">
+              <div className="stat-label">Store Profile</div>
+              <span className="stat-pill-badge badge-green">🏬 Active Store</span>
             </div>
-            <div className="stat-value" style={{ fontSize: '24px' }}>
+            <div className="stat-value" style={{ fontSize: '26px', lineHeight: 1.2 }}>
               {dashboard.storeName}
             </div>
           </div>
-          <div className="stat-subtext" style={{ color: 'var(--success)', fontWeight: '600' }}>
+          <div className="stat-subtext" style={{ color: 'var(--success-text)', fontWeight: '600' }}>
             Active storefront • {dashboard.storeAddress || 'Address on file'}
           </div>
         </div>
@@ -151,13 +162,14 @@ function OwnerDashboard() {
         {/* Card 2: Average Rating */}
         <div className="stat-card stat-ratings">
           <div>
-            <div className="stat-label">
-              Average Score
+            <div className="stat-card-header">
+              <div className="stat-label">Average Score</div>
+              <span className="stat-pill-badge badge-amber">★ Real-Time</span>
             </div>
             <div className="stat-value" style={{ color: 'var(--warning-text)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ color: 'var(--star-gold)' }}>★</span>
+              <span style={{ color: 'var(--star-gold)', filter: 'drop-shadow(0 2px 8px rgba(255, 159, 10, 0.45))' }}>★</span>
               {dashboard.averageRating.toFixed(1)}
-              <span style={{ fontSize: '18px', color: 'var(--text-muted)', fontWeight: '600' }}>/ 5</span>
+              <span style={{ fontSize: '18px', color: 'var(--text-muted)', fontWeight: '600' }}>/ 5.0</span>
             </div>
           </div>
           <div className="stat-subtext">
@@ -168,8 +180,9 @@ function OwnerDashboard() {
         {/* Card 3: Total Reviews */}
         <div className="stat-card stat-users">
           <div>
-            <div className="stat-label">
-              Total Reviews
+            <div className="stat-card-header">
+              <div className="stat-label">Total Reviews</div>
+              <span className="stat-pill-badge badge-blue">👥 Verified</span>
             </div>
             <div className="stat-value">
               {totalReviews}
@@ -199,9 +212,10 @@ function OwnerDashboard() {
                   <div style={{
                     width: `${pct}%`,
                     height: '100%',
-                    background: stars >= 4 ? 'linear-gradient(90deg, #F59E0B, #D97706)' : stars === 3 ? '#FBBF24' : '#F87171',
+                    background: stars >= 4 ? 'linear-gradient(90deg, #FF9F0A, #FFB340)' : stars === 3 ? '#FFB340' : '#FF453A',
                     borderRadius: '999px',
-                    transition: 'width 0.4s ease'
+                    transition: 'width 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                    boxShadow: stars >= 4 ? '0 1px 6px rgba(255, 159, 10, 0.35)' : 'none'
                   }} />
                 </div>
                 <span style={{ width: '80px', textAlign: 'right', fontWeight: '600', color: 'var(--text-muted)' }}>
